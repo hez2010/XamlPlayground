@@ -18,6 +18,7 @@ using ReactiveMarbles.PropertyChanged;
 using XamlPlayground.Services;
 using System.Reactive.Subjects;
 using Avalonia.Threading;
+using Avalonia.ReactiveUI;
 
 namespace XamlPlayground.ViewModels;
 
@@ -25,7 +26,7 @@ public partial class MainViewModel : ViewModelBase
 {
     [ObservableProperty] private ObservableCollection<SampleViewModel> _samples;
     [ObservableProperty] private SampleViewModel? _currentSample;
-    [ObservableProperty] private IControl? _control;
+    [ObservableProperty] private Control? _control;
     [ObservableProperty] private bool _enableAutoRun;
     [ObservableProperty] private string? _lastErrorMessage;
     [ObservableProperty] private int _editorFontSize;
@@ -288,7 +289,7 @@ public partial class MainViewModel : ViewModelBase
             }
             else
             {
-                var control = AvaloniaRuntimeXamlLoader.Parse<IControl?>(xaml, null);
+                var control = AvaloniaRuntimeXamlLoader.Parse<Control?>(xaml, null);
                 if (control is { })
                 {
                     Control = control;

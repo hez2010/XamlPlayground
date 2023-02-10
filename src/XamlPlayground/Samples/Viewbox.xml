@@ -1,5 +1,5 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:collections="clr-namespace:System.Collections;assembly=netstandard"
+             xmlns:collections="using:System.Collections"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
   <Grid RowDefinitions="Auto,*,*">

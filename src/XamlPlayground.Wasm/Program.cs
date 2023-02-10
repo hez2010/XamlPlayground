@@ -4,7 +4,7 @@ using System.Runtime.InteropServices.JavaScript;
 using System.Runtime.Versioning;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Web;
+using Avalonia.Browser;
 using XamlPlayground;
 using XamlPlayground.Services;
 using XamlPlayground.ViewModels;
