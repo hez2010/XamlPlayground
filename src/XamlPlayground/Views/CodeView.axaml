@@ -50,17 +50,15 @@
         <ae:TextEditor Margin="0"
                        IsReadOnly="{OnFormFactor False, Mobile=True}"
                        Document="{Binding CurrentSample.Xaml}"
-                       Background="WhiteSmoke"
                        HorizontalScrollBarVisibility="Auto"
                        VerticalScrollBarVisibility="Auto"
                        FontFamily="avares://XamlPlayground/Assets/Fonts#Roboto Mono"
-                       Foreground="Black"
                        ShowLineNumbers="True"
                        FontWeight="Normal"
                        FontSize="{Binding EditorFontSize}"
                        WordWrap="False">
           <i:Interaction.Behaviors>
-            <behaviors:TextEditorBehavior Extension=".xml" UseTextMate="False" />
+            <behaviors:TextEditorBehavior Extension=".xml" UseTextMate="True" />
           </i:Interaction.Behaviors>
         </ae:TextEditor>
       </TabItem>
@@ -68,17 +66,15 @@
         <ae:TextEditor Margin="0"
                        IsReadOnly="{OnFormFactor False, Mobile=True}"
                        Document="{Binding CurrentSample.Code}"
-                       Background="WhiteSmoke"
                        HorizontalScrollBarVisibility="Auto"
                        VerticalScrollBarVisibility="Auto"
                        FontFamily="avares://XamlPlayground/Assets/Fonts#Roboto Mono"
-                       Foreground="Black"
                        ShowLineNumbers="True"
                        FontWeight="Normal"
                        FontSize="{Binding EditorFontSize}"
                        WordWrap="False">
           <i:Interaction.Behaviors>
-            <behaviors:TextEditorBehavior Extension=".cs" UseTextMate="False" />
+            <behaviors:TextEditorBehavior Extension=".cs" UseTextMate="True" />
           </i:Interaction.Behaviors>
         </ae:TextEditor>
       </TabItem>

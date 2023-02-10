@@ -19,6 +19,8 @@ using XamlPlayground.Services;
 using System.Reactive.Subjects;
 using Avalonia.Threading;
 using Avalonia.ReactiveUI;
+using Avalonia;
+using Avalonia.Styling;
 
 namespace XamlPlayground.ViewModels;
 
@@ -30,6 +32,7 @@ public partial class MainViewModel : ViewModelBase
     [ObservableProperty] private bool _enableAutoRun;
     [ObservableProperty] private string? _lastErrorMessage;
     [ObservableProperty] private int _editorFontSize;
+    [ObservableProperty] private int _theme;
     private bool _update;
     private (Assembly? Assembly, AssemblyLoadContext? Context)? _previous;
     private IStorageFile? _openXamlFile;
@@ -53,6 +56,10 @@ public partial class MainViewModel : ViewModelBase
         this.WhenChanged(x => x.CurrentSample)
             .DistinctUntilChanged()
             .Subscribe(CurrentSampleChanged);
+
+        this.WhenChanged(x => x.Theme)
+            .DistinctUntilChanged()
+            .Subscribe(CurrentThemeChanged);
 
         _runSubject.AsObservable()
             .Throttle(TimeSpan.FromMilliseconds(400))
@@ -92,6 +99,16 @@ public partial class MainViewModel : ViewModelBase
         {
             Open(sampleViewModel);
         }
+    }
+
+    private void CurrentThemeChanged(int selectedTheme)
+    {
+        Avalonia.Application.Current!.RequestedThemeVariant = selectedTheme switch
+        {
+            1 => ThemeVariant.Light,
+            2 => ThemeVariant.Dark,
+            _ => ThemeVariant.Default,
+        };
     }
 
     private async Task<(string Xaml, string Code)> GetGistContent(string id)

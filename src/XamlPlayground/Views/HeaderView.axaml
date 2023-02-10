@@ -152,8 +152,12 @@
         <Flyout ShowMode="TransientWithDismissOnPointerMoveAway" 
                 Placement="BottomEdgeAlignedRight">
           <StackPanel Spacing="12">
-            <CheckBox Margin="0,0,0,0"
-                      Content="Live Preview"
+            <ComboBox SelectedIndex="{Binding Theme}">
+              <ComboBoxItem>Default Theme</ComboBoxItem>
+              <ComboBoxItem>Light Theme</ComboBoxItem>
+              <ComboBoxItem>Dark Theme</ComboBoxItem>
+            </ComboBox>
+            <CheckBox Content="Live Preview"
                       IsChecked="{Binding EnableAutoRun}" />
             <Label Content="Font size:" />
             <NumericUpDown Value="{Binding EditorFontSize, Mode=TwoWay}"
